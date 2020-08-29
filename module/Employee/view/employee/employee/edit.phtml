@@ -1,0 +1,34 @@
+ <?php
+ 
+ $title = 'Edit Employee';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url(
+     'employee',
+     array(
+         'action' => 'edit',
+         'id'     => $this->id,
+     )
+ ));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('name'));
+ echo "<br/>";
+ echo $this->formRow($form->get('address'));
+ echo "<br/>";
+ echo $this->formRow($form->get('email_add'));
+ echo "<br/>";
+ echo $this->formRow($form->get('phone'));
+ echo "<br/>";
+ echo $this->formRow($form->get('dob'));
+ echo "<br/>";
+ echo $this->formRow($form->get('image'));
+ echo "<br/>";
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
